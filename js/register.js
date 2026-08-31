@@ -9,11 +9,15 @@ const supabase = window.supabase.createClient(
     SUPABASE_PUBLISHABLE_KEY
 );
 
-const form = document.getElementById("registerForm");
+// ----------------------------
+// Email Registration
+// ----------------------------
 
-form.addEventListener("submit", async (event) => {
+const registerForm = document.getElementById("registerForm");
 
-    event.preventDefault();
+registerForm.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
 
     const username = document.getElementById("username").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -37,7 +41,7 @@ form.addEventListener("submit", async (event) => {
 
     try {
 
-        const { data, error } = await supabase.auth.signUp({
+        const { error } = await supabase.auth.signUp({
 
             email: email,
 
@@ -59,21 +63,13 @@ form.addEventListener("submit", async (event) => {
 
         if (error) {
 
-            alert("Registration failed:\n\n" + error.message);
+            alert(error.message);
             return;
 
         }
 
         alert(
-`🎉 Welcome to LuxTube!
-
-Your account has been created.
-
-A verification email has been sent to:
-
-${email}
-
-Please verify your email before logging in.`
+            "Account created successfully!\n\nPlease verify your email before logging in."
         );
 
         window.location.href = "login.html";
@@ -82,7 +78,35 @@ Please verify your email before logging in.`
 
         console.error(err);
 
-        alert("Failed to connect to Supabase.\n\nCheck your Project URL and Publishable Key.");
+        alert("Failed to connect to Supabase.");
+
+    }
+
+});
+
+// ----------------------------
+// GitHub OAuth
+// ----------------------------
+
+const githubButton = document.getElementById("githubRegister");
+
+githubButton.addEventListener("click", async () => {
+
+    const { error } = await supabase.auth.signInWithOAuth({
+
+        provider: "github",
+
+        options: {
+
+            redirectTo: "https://luxtubee.netlify.app/profile.html"
+
+        }
+
+    });
+
+    if (error) {
+
+        alert(error.message);
 
     }
 

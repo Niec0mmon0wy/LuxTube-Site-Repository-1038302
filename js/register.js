@@ -1,4 +1,4 @@
-const SUPABASE_URL = "https://YOUR_PROJECT.supabase.co";
+const SUPABASE_URL = "https://bpqastngkiffingtkioc.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "YOUR_PUBLISHABLE_KEY";
 
 const client = window.supabase.createClient(
@@ -6,59 +6,51 @@ const client = window.supabase.createClient(
     SUPABASE_PUBLISHABLE_KEY
 );
 
-document
-.getElementById("registerForm")
-.addEventListener("submit", async function(e){
+const form = document.getElementById("registerForm");
+
+form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
-    const username =
-    document.getElementById("username").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
 
-    const email =
-    document.getElementById("email").value.trim();
-
-    const password =
-    document.getElementById("password").value;
-
-    const confirmPassword =
-    document.getElementById("confirmPassword").value;
-
-    if(password !== confirmPassword){
-
+    if (password !== confirmPassword) {
         alert("Passwords do not match.");
         return;
-
     }
 
-    const { error } =
-    await client.auth.signUp({
+    try {
 
-        email: email,
+        const { data, error } = await client.auth.signUp({
 
-        password: password,
+            email: email,
+            password: password,
 
-        options:{
-
-            data:{
-
-                username: username
-
+            options: {
+                data: {
+                    username: username
+                }
             }
 
+        });
+
+        if (error) {
+            alert(error.message);
+            return;
         }
 
-    });
+        alert("Account created successfully! Check your email to verify your account.");
 
-    if(error){
+        window.location.href = "login.html";
 
-        alert(error.message);
-        return;
+    } catch (err) {
+
+        console.error(err);
+        alert("Failed to connect to Supabase.");
 
     }
-
-    alert("Account created! Please check your email.");
-
-    window.location.href="login.html";
 
 });

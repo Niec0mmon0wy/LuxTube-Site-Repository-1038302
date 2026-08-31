@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Search • LuxTube</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+body{
+    margin:0;
+    background:#0b1220;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+header{
+    background:#111827;
+    padding:20px 30px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    border-bottom:1px solid #1f2937;
+}
+
+header img{
+    width:55px;
+}
+
+header h1{
+    color:#5ac8ff;
+    margin:0;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.searchBox{
+    display:flex;
+    gap:15px;
+    margin-bottom:40px;
+}
+
+.searchBox input{
+
+    flex:1;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#1f2937;
+
+    color:white;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+.searchBox button{
+
+    padding:16px 30px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+.searchBox button:hover{
+
+    background:#1d4ed8;
+
+}
+
+.results{
+
+    background:#111827;
+
+    border:2px dashed #374151;
+
+    border-radius:20px;
+
+    padding:80px 20px;
+
+    text-align:center;
+
+}
+
+.results h2{
+
+    margin-bottom:15px;
+
+}
+
+.results p{
+
+    color:#94a3b8;
+
+    margin-bottom:30px;
+
+}
+
+#videoResults{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+
+    gap:25px;
+
+    margin-top:35px;
+
+}
+
+.card{
+
+    display:none;
+
+    background:#1f2937;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+}
+
+.thumbnail{
+
+    height:180px;
+
+    background:#374151;
+
+}
+
+.info{
+
+    padding:15px;
+
+}
+
+.info h3{
+
+    margin:0 0 10px;
+
+}
+
+.info p{
+
+    color:#94a3b8;
+
+    margin:0;
+
+}
+
+.back{
+
+    display:inline-block;
+
+    margin-top:35px;
+
+    color:#94a3b8;
+
+    text-decoration:none;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<img src="assets/logo.png">
+
+<h1>LuxTube Search</h1>
+
+</header>
+
+<div class="container">
+
+<div class="searchBox">
+
+<input
+id="searchInput"
+type="text"
+placeholder="Search videos, creators, playlists...">
+
+<button id="searchButton">
+
+Search
+
+</button>
+
+</div>
+
+<div class="results" id="emptyState">
+
+<h2>No Results</h2>
+
+<p>
+
+Search results from real uploaded videos will appear here.
+
+</p>
+
+</div>
+
+<div id="videoResults">
+
+<!-- Real videos loaded from Supabase -->
+
+</div>
+
+<a class="back" href="index.html">
+
+← Back to Home
+
+</a>
+
+</div>
+
+<script>
+
+document.getElementById("searchButton").addEventListener("click",()=>{
+
+const query=document.getElementById("searchInput").value.trim();
+
+if(query===""){
+
+alert("Enter something to search.");
+
+return;
+
+}
+
+/*
+
+Later:
+
+1. Send query to Fly.io backend
+
+2. Backend searches Supabase
+
+3. Return real uploaded videos
+
+4. Create cards inside #videoResults
+
+*/
+
+console.log("Searching:",query);
+
+});
+
+</script>
+
+</body>
+</html>

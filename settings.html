@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Settings • LuxTube</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+body{
+    margin:0;
+    background:#0b1220;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+.container{
+    max-width:1100px;
+    margin:50px auto;
+    padding:20px;
+}
+
+h1{
+    margin-bottom:30px;
+    color:#5ac8ff;
+}
+
+.section{
+    background:#111827;
+    border:1px solid #1f2937;
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:25px;
+}
+
+.section h2{
+    margin-top:0;
+    margin-bottom:20px;
+}
+
+.input{
+    margin-bottom:20px;
+}
+
+.input label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+.input input,
+.input textarea,
+.input select{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    background:#1f2937;
+
+    color:white;
+
+    font-size:15px;
+
+}
+
+textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+button{
+
+    padding:14px 28px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+button:hover{
+
+    background:#1d4ed8;
+
+}
+
+.danger{
+
+    background:#991b1b;
+
+}
+
+.danger:hover{
+
+    background:#b91c1c;
+
+}
+
+.home{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    color:#94a3b8;
+
+    text-decoration:none;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>⚙ Settings</h1>
+
+<div class="section">
+
+<h2>Profile</h2>
+
+<div class="input">
+
+<label>Display Name</label>
+
+<input
+type="text"
+placeholder="Your display name">
+
+</div>
+
+<div class="input">
+
+<label>Username</label>
+
+<input
+type="text"
+placeholder="@username">
+
+</div>
+
+<div class="input">
+
+<label>Bio</label>
+
+<textarea
+placeholder="Tell everyone about yourself..."></textarea>
+
+</div>
+
+<div class="input">
+
+<label>Profile Picture</label>
+
+<input type="file" accept="image/*">
+
+</div>
+
+<div class="input">
+
+<label>Banner Image</label>
+
+<input type="file" accept="image/*">
+
+</div>
+
+<button>
+
+Save Profile
+
+</button>
+
+</div>
+
+<div class="section">
+
+<h2>Account</h2>
+
+<div class="input">
+
+<label>Email</label>
+
+<input
+type="email"
+placeholder="Email address">
+
+</div>
+
+<div class="input">
+
+<label>New Password</label>
+
+<input
+type="password"
+placeholder="Leave blank to keep current password">
+
+</div>
+
+<button>
+
+Update Account
+
+</button>
+
+</div>
+
+<div class="section">
+
+<h2>Appearance</h2>
+
+<div class="input">
+
+<label>Theme</label>
+
+<select>
+
+<option>Dark</option>
+
+<option>Light</option>
+
+<option>System</option>
+
+</select>
+
+</div>
+
+<button>
+
+Save Appearance
+
+</button>
+
+</div>
+
+<div class="section">
+
+<h2>Privacy</h2>
+
+<label>
+
+<input type="checkbox">
+
+Keep my subscriptions private
+
+</label>
+
+<br><br>
+
+<label>
+
+<input type="checkbox">
+
+Allow comments on my videos
+
+</label>
+
+<br><br>
+
+<label>
+
+<input type="checkbox">
+
+Receive email notifications
+
+</label>
+
+<br><br>
+
+<button>
+
+Save Privacy
+
+</button>
+
+</div>
+
+<div class="section">
+
+<h2>Danger Zone</h2>
+
+<p>
+
+Deleting your account permanently removes your profile, videos, playlists, and comments.
+
+</p>
+
+<br>
+
+<button class="danger">
+
+Delete My Account
+
+</button>
+
+</div>
+
+<a href="profile.html" class="home">
+
+← Back to Profile
+
+</a>
+
+</div>
+
+<script>
+
+/*
+
+Later connect these buttons to Supabase.
+
+Examples:
+
+- Update username
+- Update bio
+- Upload avatar
+- Upload banner
+- Change email
+- Change password
+- Delete account
+
+*/
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Upload Video • LuxTube</title>
+
+<link rel="icon" href="assets/logo.png">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/upload.css">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+<a href="index.html" class="logo-area">
+
+<img src="assets/logo.png" class="logo">
+
+<h2>LuxTube</h2>
+
+</a>
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="search.html">Search</a>
+<a href="profile.html">Profile</a>
+<a href="settings.html">Settings</a>
+
+</nav>
+
+</header>
+
+<main class="upload-page">
+
+<div class="upload-card">
+
+<h1>Upload a Video</h1>
+
+<p>
+Share your videos with the LuxTube community.
+</p>
+
+<form id="uploadForm">
+
+<div class="field">
+
+<label>Video Title</label>
+
+<input
+type="text"
+id="title"
+placeholder="Enter video title"
+required>
+
+</div>
+
+<div class="field">
+
+<label>Description</label>
+
+<textarea
+id="description"
+rows="6"
+placeholder="Tell viewers about your video..."
+required></textarea>
+
+</div>
+
+<div class="field">
+
+<label>Category</label>
+
+<select id="category">
+
+<option>Gaming</option>
+<option>Technology</option>
+<option>Music</option>
+<option>Education</option>
+<option>Entertainment</option>
+<option>Sports</option>
+<option>News</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label>Thumbnail</label>
+
+<input
+type="file"
+id="thumbnail"
+accept="image/*">
+
+</div>
+
+<div class="field">
+
+<label>Video</label>
+
+<input
+type="file"
+id="video"
+accept="video/*"
+required>
+
+</div>
+
+<div class="field">
+
+<label>Visibility</label>
+
+<select id="visibility">
+
+<option value="public">Public</option>
+<option value="unlisted">Unlisted</option>
+<option value="private">Private</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label>
+
+<input type="checkbox" checked>
+
+Allow comments
+
+</label>
+
+</div>
+
+<button type="submit">
+
+Upload Video
+
+</button>
+
+</form>
+
+<div id="progressContainer">
+
+<div id="progressBar"></div>
+
+</div>
+
+<p id="status"></p>
+
+</div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/upload.js"></script>
+
+</body>
+
+</html>

@@ -1,36 +1,51 @@
 const SUPABASE_URL = "https://YOUR_PROJECT.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "YOUR_PUBLISHABLE_KEY";
 
-const supabase = window.supabase.createClient(
+const client = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_PUBLISHABLE_KEY
 );
 
-const form = document.getElementById("registerForm");
-
-form.addEventListener("submit", async (e) => {
+document
+.getElementById("registerForm")
+.addEventListener("submit", async function(e){
 
     e.preventDefault();
 
-    const username = document.getElementById("username").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
+    const username =
+    document.getElementById("username").value.trim();
+
+    const email =
+    document.getElementById("email").value.trim();
+
+    const password =
+    document.getElementById("password").value;
+
+    const confirmPassword =
+    document.getElementById("confirmPassword").value;
 
     if(password !== confirmPassword){
+
         alert("Passwords do not match.");
         return;
+
     }
 
-    const { error } = await supabase.auth.signUp({
+    const { error } =
+    await client.auth.signUp({
 
         email: email,
+
         password: password,
 
         options:{
+
             data:{
+
                 username: username
+
             }
+
         }
 
     });
@@ -42,8 +57,8 @@ form.addEventListener("submit", async (e) => {
 
     }
 
-    alert("Account created! Please check your email to verify your account.");
+    alert("Account created! Please check your email.");
 
-    window.location.href = "login.html";
+    window.location.href="login.html";
 
 });
